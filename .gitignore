@@ -1,0 +1,19 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.DS_Store
+Thumbs.db
+
+# datos de medida y resultados (no subir datos reales)
+*.plu
+*.tst
+*.gsf
+*.npy
+*.opju
+*.dat
+*.asc
+*.xyz
+ejemplos/campos/
+*_origin*.csv
+resumen_origin.*
