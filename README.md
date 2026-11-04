@@ -1,6 +1,6 @@
-# Herramientas de tribología
+# Stitching de huellas de desgaste
 
-Scripts en Python para el análisis de ensayos de desgaste reciprocantes (*block-on-flat* / *pin-on-flat*):
+Cose topografías ópticas de una huella de desgaste medidas en varios campos, calcula su volumen y su tasa de desgaste, y exporta los ensayos de fricción (`.tst`) a OriginLab. Pensado para ensayos reciprocantes (*block-on-flat* / *pin-on-flat* / *ball-on-plate*).
 
 | Script | Qué hace |
 |---|---|
@@ -9,7 +9,8 @@ Scripts en Python para el análisis de ensayos de desgaste reciprocantes (*block
 | [`bof_core.py`](bof_core.py) | Módulo común: lector de `.tst` y motor de cálculo (lo usa `exportar_origin_bof.py`). |
 
 <p align="center">
-  <img src="docs/img/mosaico_3d.png" width="70%" alt="Vista 3D de una huella de desgaste cosida">
+  <img src="docs/img/huella_real_3d.png" width="85%" alt="Vista 3D de una huella de desgaste real cosida a partir de 7 campos">
+  <br><em>Huella real cosida a partir de 7 campos de perfilómetro confocal (~0,94 × 0,27 mm, ~10 µm de profundidad).</em>
 </p>
 
 Funcionan en **Windows, macOS y Linux**, en procesadores **x86-64 y ARM** (Apple Silicon incluido): son Python puro con numpy/scipy, sin código compilado propio.
@@ -21,8 +22,8 @@ Funcionan en **Windows, macOS y Linux**, en procesadores **x86-64 y ARM** (Apple
 Requiere Python ≥ 3.9.
 
 ```bash
-git clone https://github.com/sgomez-p/herramientas-tribologia.git
-cd herramientas-tribologia
+git clone https://github.com/sgomez-p/stitching-huellas-desgaste.git
+cd stitching-huellas-desgaste
 pip install -r requirements.txt
 ```
 
