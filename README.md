@@ -8,6 +8,10 @@ Scripts en Python para el análisis de ensayos de desgaste reciprocantes (*block
 | [`exportar_origin_bof.py`](exportar_origin_bof.py) | Lee los ficheros binarios **`.tst`** del tribómetro, calcula **CoF**, fuerzas y desgaste vertical y exporta todo en formato listo para **OriginLab** (`.dat` con cabecera Long Name/Units/Comments, resumen de KPIs acumulativo y, opcionalmente, proyecto `.opju` con gráficas). |
 | [`bof_core.py`](bof_core.py) | Módulo común: lector de `.tst` y motor de cálculo (lo usa `exportar_origin_bof.py`). |
 
+<p align="center">
+  <img src="docs/img/mosaico_3d.png" width="70%" alt="Vista 3D de una huella de desgaste cosida">
+</p>
+
 Funcionan en **Windows, macOS y Linux**, en procesadores **x86-64 y ARM** (Apple Silicon incluido): son Python puro con numpy/scipy, sin código compilado propio.
 
 ---
@@ -84,6 +88,16 @@ python coser_huella.py c01.plu c02.plu c03.plu --barrido x --carga 2 --distancia
 | `*_mosaico.gsf`, `*_mosaico_matriz.txt`, `*_mosaico.npy` | Mosaico para Gwyddion / MountainsMap / Python |
 | `*_informe.txt` | Posiciones, calidad de cada unión (NCC), offsets y volúmenes |
 
+### Ejemplo
+
+*Datos sintéticos generados con `ejemplos/generar_datos_sinteticos.py`: 4 campos solapados de una huella de 3 µm de profundidad.*
+
+![Mosaico nivelado con los 4 campos y las bandas de referencia](docs/img/mosaico.png)
+
+| Perfil transversal medio | Área de la sección a lo largo de la huella |
+|---|---|
+| ![Perfil transversal](docs/img/perfil.png) | ![Área de sección](docs/img/area_seccion.png) |
+
 ---
 
 ## `exportar_origin_bof.py` — exportación de ensayos `.tst` a OriginLab
@@ -101,6 +115,12 @@ Para cada ensayo genera, junto al `.tst`:
 - **`<id>.opju`** — proyecto Origin con la hoja y gráficas de CoF y Z1 (opcional; requiere OriginLab ≥ 2021 y `pip install originpro`, **solo Windows**).
 
 Y un **resumen de KPIs** acumulativo (`.dat` + `.json`): una fila por ensayo con CoF estacionario, CoF por tercios, fuerzas medias, ΔZ1, tasa de desgaste vertical, distancia de rodaje, etc. Reexportar un ensayo actualiza su fila en vez de duplicarla.
+
+### Ejemplo
+
+*Ensayo sintético de 10 min a 5 Hz y 2 N: rodaje inicial del CoF hasta el régimen estacionario y desgaste vertical progresivo.*
+
+![CoF y Z1 frente a la distancia](docs/img/ensayo_cof_z1.png)
 
 ### Formato `.tst`
 
